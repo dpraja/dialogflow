@@ -84,7 +84,7 @@ def makeWebhookResult(json_data):
     print(json.dumps(res, indent=4))
     
     averagetime = res.get('Average_Wait_Time')
-    t=int(averagetime*60)
+    t=int(averagetime)*60
     day= t//86400
     hour= (t-(day*86400))//3600
     minit= (t - ((day*86400) + (hour*3600)))//60
