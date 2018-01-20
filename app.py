@@ -63,7 +63,8 @@ def processRequest(req):
     email = parameters.get("appt-email")
     
     data = {}
-    data['business_id'] = "100"
+    #data['business_id'] = "100"
+    date['business_name'] =  docname
     data['customer_email'] = email
     json_data = json.dumps(data)
     
