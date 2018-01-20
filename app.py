@@ -64,7 +64,7 @@ def processRequest(req):
     
     data = {}
     #data['business_id'] = "100"
-    date['business_name'] =  docname
+    data['business_name'] = docname
     data['customer_email'] = email
     json_data = json.dumps(data)
     
