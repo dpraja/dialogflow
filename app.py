@@ -89,7 +89,9 @@ def makeWebhookResult(json_data):
     hour= (t-(day*86400))//3600
     minit= (t - ((day*86400) + (hour*3600)))//60
     seconds= t - ((day*86400) + (hour*3600) + (minit*60))
-    print(hour,' hours', minit, 'minutes')
+    #print(hour,' hours', minit, 'minutes')
+    avgwaittimeformat = hour,' hours', minit, 'minutes'
+    print(avgwaittimeformat)
     
     if res.get('Message') == 'AlreadyExists':
          speech = "You have already received Token.Token Number is :" + res.get('Token')
