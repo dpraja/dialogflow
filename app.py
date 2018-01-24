@@ -103,7 +103,8 @@ def makeWebhookResult(json_data):
     if res.get('Message') == 'AlreadyExists':
          speech = "You have already received Token.Token Number is :" + res.get('Token')
     else:
-            speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "#+" business_hours:"+str(business_hour_st)+str(business_hour_end) 
+            #speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "#+" business_hours:"+str(business_hour_st)+str(business_hour_end) 
+            speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "  
             #speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + "... " + "Appx Wait Time: " + avgwaittimeformat
     #speech = "your appointment is confirmed! "
 
