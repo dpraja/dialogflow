@@ -43,7 +43,6 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
     sys.stdout.flush()
-    res = None
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
