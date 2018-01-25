@@ -112,7 +112,8 @@ def makeWebhookResult(json_data):
     '''
     #speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "  +  "Address:" + str(business_add)+" Business_hour:"+str(business_hour_st)+"-"+str(business_hour_end)+"."+"Break_Time:"+str(break_st)+"-"+str(break_end)
             #speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "  
-    speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') 
+    speech = "Appointment is confirmed! Your Token Number: " 
+    #+ res.get('Token') 
       
     print("Response:")
     print(speech)
