@@ -68,7 +68,11 @@ def processRequest(req):
     data['customer_email'] = email
     json_data = json.dumps(data)
     
-    print("Request parsed")
+    print("Request Parsed,Success...")
+    print("Sending JSON Data...")
+    print(json_data)
+
+    
     sys.stdout.flush()
     res = makeWebhookResult(json_data)
     return res
@@ -78,9 +82,15 @@ def makeWebhookResult(json_data):
     # print(json.dumps(item, indent=4))
     appturl = 'https://postgresheroku.herokuapp.com/update'
     headers = {'content-type': 'application/json'}
+    
+    print("JSON Data, Before requests.post")
+    print(json_data)
+    
     result = requests.post(appturl, data = json_data, headers=headers)
     res = json.loads(result.text)
+    
     print(json.dumps(res, indent=4))
+    
     # get wait time 
     averagetime = res.get('Average_Wait_Time')
     t=int(averagetime)*60
