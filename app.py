@@ -43,7 +43,7 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
     sys.stdout.flush()
-    
+    res = None
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
@@ -101,7 +101,7 @@ def makeWebhookResult(json_data):
     print(business_hour_st)
     print(business_hour_end)
     print(break_st, break_end,business_add)
-    '''
+    
     print("in if statement")
     if res.get('Message') == 'AlreadyExists':
          print("in if statement")
@@ -109,11 +109,9 @@ def makeWebhookResult(json_data):
          print("in if statement")
             
     else:
-    '''
+   
     #speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "  +  "Address:" + str(business_add)+" Business_hour:"+str(business_hour_st)+"-"+str(business_hour_end)+"."+"Break_Time:"+str(break_st)+"-"+str(break_end)
-            #speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "  
-    speech = "Appointment is confirmed! Your Token Number: " 
-    #+ res.get('Token') 
+         speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "  
       
     print("Response:")
     print(speech)
