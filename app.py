@@ -115,7 +115,7 @@ def makeWebhookResult(json_data):
     print(break_st, break_end,business_add)
     
     print("in if statement")
-    if res.get('Message') == 'AlreadyExists':
+    if res.get('Message') is  'AlreadyExists':
          print("in if statement")
          speech = "You have already received Token.Token Number is :" + res.get('Token')
          print("in if statement")
