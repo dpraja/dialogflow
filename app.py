@@ -79,6 +79,9 @@ def processRequest(req):
 
 def makeWebhookResult(json_data):
 
+    result = None
+    res = None
+    averagetime = None
     # print(json.dumps(item, indent=4))
     appturl = 'https://postgresheroku.herokuapp.com/update'
     headers = {'content-type': 'application/json'}
