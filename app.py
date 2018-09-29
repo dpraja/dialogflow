@@ -66,6 +66,7 @@ def processRequest(req):
     #data['business_id'] = "100"
     data['business_name'] = docname
     data['customer_email'] = email
+    data['customer_appointment_date'] = apptday
     json_data = json.dumps(data)
     
     print("Request Parsed,Success...")
