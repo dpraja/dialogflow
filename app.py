@@ -94,7 +94,7 @@ def makeWebhookResult(json_data):
     result = requests.post(appturl, data = json_data, headers=headers)
     res = json.loads(result.text)
     
-    print(json.dumps(res, indent=4))
+    print('res',json.dumps(res, indent=4))
     
     # get wait time 
     averagetime = res.get('Average_Wait_Time')
