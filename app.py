@@ -56,7 +56,7 @@ def webhook():
 def processRequest(req):
     #if req.get("action") != "bookappt":    
     #    return {}
-    
+    print(req.get("action"),type(req.get("action")))
     result = req.get("result")
     parameters = result.get("parameters")
     docname = parameters.get("doctor-name")
