@@ -54,9 +54,9 @@ def webhook():
 
 
 def processRequest(req):
-    #if req.get("action") != "bookappt":    
-    #    return {}
-    print(req.get("action"),type(req.get("action")))
+    if req['result']['action'] != "bookappt":    
+        return {}
+    print(req['result']['action'],type(req['result']['action']))
     result = req.get("result")
     parameters = result.get("parameters")
     docname = parameters.get("doctor-name")
@@ -81,22 +81,27 @@ def processRequest(req):
 
 def makeWebhookResult(json_data):
 
-    result = None
-    res = None
-    averagetime = None
+   result = None
+   res = None
+   averagetime = None
     # print(json.dumps(item, indent=4))
-    appturl = 'https://postgresheroku.herokuapp.com/update'
-    headers = {'content-type': 'application/json'}
+   appturl = 'https://postgresheroku.herokuapp.com/update'
+   headers = {'content-type': 'application/json'}
     
-    print("JSON Data, Before requests.post")
-    print(json_data)
+   print("JSON Data, Before requests.post")
+   print(json_data)
     
-    result = requests.post(appturl, data = json_data, headers=headers)
-    res = json.loads(result.text)
+   result = requests.post(appturl, data = json_data, headers=headers)
+   res = json.loads(result.text)
     
-    print('res',json.dumps(res, indent=4))
+   print('res',json.dumps(res, indent=4))
     
     # get wait time 
+   if res.get('Message') is  "AlreadyExists":
+         print("in if statement")
+         speech = "You have already received Token.Token Number is :" + res.get('Token')
+         print("in if statement")
+   else:        
     averagetime = res.get('Average_Wait_Time')
     t=int(averagetime)*60
     day= t//86400
@@ -117,14 +122,8 @@ def makeWebhookResult(json_data):
     print(break_st, break_end,business_add)
     
     print("in if statement")
-    if res.get('Message') is  "AlreadyExists":
-         print("in if statement")
-         speech = "You have already received Token.Token Number is :" + res.get('Token')
-         print("in if statement")
-            
-    else:
-   
-       speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "  +  "Address:" + str(business_add)+" Business_hour:"+str(business_hour_st)+"-"+str(business_hour_end)+"."+"Break_Time:"+str(break_st)+"-"+str(break_end)
+
+    speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "  +  "Address:" + str(business_add)+" Business_hour:"+str(business_hour_st)+"-"+str(business_hour_end)+"."+"Break_Time:"+str(break_st)+"-"+str(break_end)
        #  speech = "Appointment is confirmed! Your Token Number: " + res.get('Token') + ". Appx Wait Time: " + str(hour)+ " hr(s) " + str(minit) + " min(s) "  
       
     print("Response:")
