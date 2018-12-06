@@ -62,12 +62,8 @@ def processRequest(req):
     docname = parameters.get("doctor-name")
     apptday = parameters.get("appt-day").lower()
     email = parameters.get("appt-email")
-    day = datetime.timedelta(days=1)
-    date1 = datetime.datetime.utcnow().date()
-    if apptday == 'today':
-        apptday = date1.strftime('%Y-%m-%d')
-    else:
-        apptday = (date1 + 1).strftime('%Y-%m-%d')
+   
+    
     data = {}
     #data['business_id'] = "100"
     data['business_name'] = docname
